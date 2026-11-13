@@ -1,4 +1,3 @@
-
 # Shows the menu options to the user.
 # The user can choose what to do.
 # Output: Displays the menu.
