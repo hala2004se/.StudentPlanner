@@ -1,3 +1,8 @@
+
+# Shows the menu options to the user.
+# The user can choose what to do.
+# Output: Displays the menu.
+
 def display_menu():
     print("\nSTUDENT PLANNER")
     print("----------------------------------------")
@@ -14,6 +19,10 @@ def display_menu():
     print("----------------------------------------")
 
 
+# Gets text from the user.
+# Checks that the user did not leave the input empty.
+# Output: Returns the entered text.
+
 def get_text(prompt):
     text = input(prompt).strip()
 
@@ -23,6 +32,9 @@ def get_text(prompt):
 
     return text
 
+# Checks if the date is written in the correct format.
+# Checks the numbers and slash positions.
+# Output: Returns True or False.
 
 def is_valid_date(date):
     if len(date) != 10:
@@ -39,6 +51,10 @@ def is_valid_date(date):
     return True
 
 
+# Asks the user to enter a due date.
+# Keeps asking until the date format is correct.
+# Output: Returns the date.
+
 def get_date():
     date = input("Due date (DD/MM/YYYY): ").strip()
 
@@ -48,6 +64,9 @@ def get_date():
 
     return date
 
+# Asks the user to choose a task priority.
+# The choices are High, Medium, and Low.
+# Output: Returns the selected priority.
 
 def get_priority():
     choice = input("Priority (1=High, 2=Medium, 3=Low): ").strip()
@@ -63,6 +82,9 @@ def get_priority():
     else:
         return "Low"
 
+# Asks the user to enter a task ID.
+# Checks that the ID contains numbers only and is greater than zero.
+# Output: Returns the ID or None if it is not valid.
 
 def get_task_id():
     text = input("Enter task ID: ").strip()
@@ -84,6 +106,9 @@ def get_task_id():
 
     return task_id
 
+# Gets the task information from the user.
+# Saves the information in a dictionary and adds it to the list.
+# Output: Shows a success message and returns the next ID.
 
 def add_task(tasks, next_task_id):
     title = get_text("Task title: ")
@@ -106,6 +131,9 @@ def add_task(tasks, next_task_id):
 
     return next_task_id + 1
 
+# Searches for a task using its ID.
+# Checks all tasks until the correct ID is found.
+# Output: Returns the task or None if it is not found.
 
 def find_task_by_id(tasks, task_id):
     for task in tasks:
@@ -114,6 +142,9 @@ def find_task_by_id(tasks, task_id):
 
     return None
 
+# Shows the information of a task.
+# Prints the title, course, date, priority, and status.
+# Output: Displays the task details.
 
 def display_task(task):
     print("ID:", task["id"])
@@ -123,6 +154,9 @@ def display_task(task):
     print("Priority:", task["priority"])
     print("Status:", task["status"])
 
+# Allows the user to change task information.
+# The user can choose which part to edit.
+# Output: Shows if the task was updated or not.
 
 def edit_task(tasks):
     task_id = get_task_id()
@@ -166,6 +200,9 @@ def edit_task(tasks):
 
     print("Task updated successfully.")
 
+# Removes a task from the list.
+# Searches for the task using its ID before deleting it.
+# Output: Shows if the task was deleted or not.
 
 def delete_task(tasks):
     task_id = get_task_id()
@@ -180,4 +217,3 @@ def delete_task(tasks):
     else:
         tasks.remove(task)
         print("Task deleted successfully.")
-        
